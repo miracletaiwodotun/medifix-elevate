@@ -154,7 +154,7 @@ const GALLERY = [
   { src: galleryWard, alt: "Clean inpatient ward with prepared beds", span: "" },
   { src: galleryLab, alt: "Laboratory technician analysing samples under a microscope", span: "" },
   { src: galleryTheatre, alt: "Operating theatre with surgical lighting and equipment", span: "" },
-  { src: galleryStation, alt: "Hospital nurses station with staff at work", span: "lg:col-span-2" },
+  { src: galleryStation, alt: "Hospital nurses station with staff at work", span: "sm:col-span-2 lg:col-span-4" },
 ];
 
 const TESTIMONIALS = [
