@@ -53,8 +53,10 @@ export const Route = createFileRoute("/")({
           "Patient-centred hospital care with experienced professionals, modern facilities and quality healthcare. Request an appointment with Medifix Hospital Limited.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
