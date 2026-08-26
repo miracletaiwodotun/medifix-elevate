@@ -21,6 +21,7 @@ import {
   Stethoscope,
   Syringe,
   Users,
+  Eye,
 } from "lucide-react";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -103,7 +104,7 @@ const SERVICES = [
   {
     icon: Ambulance,
     title: "Emergency Care",
-    body: "Prompt assessment and stabilisation for urgent medical situations. [Confirm emergency cover hours]",
+    body: "Prompt assessment and stabilisation for urgent medical situations.",
   },
   {
     icon: Syringe,
@@ -114,6 +115,11 @@ const SERVICES = [
     icon: ShieldCheck,
     title: "Preventive Healthcare",
     body: "Health screening, immunisation and wellness guidance to help you stay ahead of illness.",
+  },
+  {
+    icon: Eye,
+    title: "Optical care",
+    body: "Vision screening, eye examinations and treatment for various eye conditions.",
   },
 ];
 
@@ -136,7 +142,7 @@ const WHY = [
   {
     icon: MapPin,
     title: "Accessible location",
-    body: "Easy to reach for the surrounding community. [Add location and landmark details]",
+    body: "Easy to reach for the surrounding community.",
   },
   {
     icon: Activity,
@@ -146,7 +152,7 @@ const WHY = [
   {
     icon: Clock,
     title: "Availability",
-    body: "[Confirm whether 24/7 services are available before publishing this claim]",
+    body: "24/7 services are available",
   },
 ];
 
@@ -237,11 +243,11 @@ function Hero() {
             <InfoPill
               icon={Ambulance}
               label="Emergency"
-              value="[Add emergency number]"
+              value="08034151457"
               accent
             />
-            <InfoPill icon={Phone} label="Reception" value="[Add phone number]" />
-            <InfoPill icon={Clock} label="Opening hours" value="[Add opening hours]" />
+            <InfoPill icon={Phone} label="Reception" value="09124326336" />
+            <InfoPill icon={Clock} label="Opening hours" value="24/7" />
           </div>
         </div>
 
@@ -324,14 +330,16 @@ function About() {
             A hospital built around professionalism and compassion
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+          Medifix Hospital Limited was founded by <b>Dr. James Piponsuhu on 5th January 2026</b> with a commitment to providing dependable healthcare services in a professional and caring environment.We are dedicated to putting patients first, delivering quality medical care, and creating a comfortable environment where individuals and families can receive the attention they deserve.
+          </p>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
             Medifix Hospital Limited is a healthcare facility dedicated to providing dependable
             medical services to individuals and families. Our approach is simple: listen carefully,
             diagnose thoroughly and treat with respect.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Patient safety and quality healthcare guide how we run our clinical spaces, manage
-            records and support recovery. [Add hospital history, ownership details and year
-            established once confirmed.]
+            records and support recovery.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
@@ -383,7 +391,7 @@ function Services() {
         <SectionHeading
           eyebrow="Our Services"
           title="Care across the areas that matter most"
-          body="Services listed below are indicative for this prototype. [Confirm the full list of services offered before publishing.]"
+          body="Explore our range of healthcare services designed to meet your medical needs with quality and compassionate care."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ icon: Icon, title, body }) => (
@@ -431,7 +439,7 @@ function Why() {
         <SectionHeading
           eyebrow="Why Choose Medifix"
           title="Reasons families keep coming back"
-          body="Every point below reflects how we intend to care for patients. Claims in brackets must be confirmed before publishing."
+          body="Every point below reflects how we intend to care for patients."
         />
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {WHY.map(({ icon: Icon, title, body }) => (
@@ -459,7 +467,7 @@ function Facilities() {
         <SectionHeading
           eyebrow="Facilities"
           title="A calm, clean environment for healing"
-          body="Representative images of hospital spaces. [Replace with photographs of the Medifix facility.]"
+          body="A safe and comfortable environment for patients, visitors and healthcare professionals."
         />
         <div className="mt-14 grid auto-rows-[190px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {GALLERY.map((item) => (
@@ -506,9 +514,9 @@ function Appointment() {
             service. For urgent medical situations, please call the emergency line instead.
           </p>
           <div className="mt-8 space-y-3">
-            <InfoPill icon={Ambulance} label="Emergency" value="[Add emergency number]" accent />
-            <InfoPill icon={MessageCircle} label="WhatsApp" value="[Add WhatsApp number]" />
-            <InfoPill icon={CalendarCheck} label="Response time" value="[Add response time]" />
+            <InfoPill icon={Ambulance} label="Emergency" value="09124326336" accent />
+            <InfoPill icon={MessageCircle} label="WhatsApp" value="08034151457" />
+            <InfoPill icon={CalendarCheck} label="Response time" value="10 mins" />
           </div>
         </div>
 
@@ -601,7 +609,7 @@ function Appointment() {
             </p>
           ) : (
             <p className="mt-4 text-xs text-muted-foreground">
-              Prototype form — submissions are not yet delivered anywhere.
+              
             </p>
           )}
         </form>
@@ -646,18 +654,18 @@ function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Reach Medifix Hospital Limited"
-          body="Contact details in brackets are placeholders. [Provide verified address, phone, WhatsApp, email and opening hours.]"
+          body="We’re here to help. Reach out to us for enquiries, appointments and more."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           <div className="reveal space-y-4 lg:col-span-1">
-            <ContactRow icon={MapPin} label="Address" value="[Add hospital address]" />
-            <ContactRow icon={Phone} label="Phone" value="[Add phone number]" />
-            <ContactRow icon={Mail} label="Email" value="[Add email address]" />
-            <ContactRow icon={Clock} label="Opening hours" value="[Add opening hours]" />
+            <ContactRow icon={MapPin} label="Address" value="Medifiix Hospital, Opposite Agano Palace, near New Market, Ajara-Aganmathen, Badagry, Lagos State." />
+            <ContactRow icon={Phone} label="Phone" value="08034151457 / 09124326336" />
+            <ContactRow icon={Mail} label="Email" value="medifixhospitalltd@gmail.com" />
+            <ContactRow icon={Clock} label="Opening hours" value="24/7" />
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
               <a
-                href="https://wa.me/"
+                href="https://wa.me/+2348034151457"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-teal px-6 py-3.5 text-sm font-semibold text-teal-foreground transition-transform hover:-translate-y-0.5"
@@ -665,7 +673,7 @@ function Contact() {
                 <MessageCircle className="h-4 w-4" /> WhatsApp Us
               </a>
               <a
-                href="tel:+000000000000"
+                href="tel:08034151457"
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-brand/25 px-6 py-3.5 text-sm font-semibold text-brand transition-colors hover:border-teal hover:text-teal"
               >
                 <Phone className="h-4 w-4" /> Call
@@ -675,9 +683,20 @@ function Contact() {
 
           <div className="reveal overflow-hidden rounded-3xl border border-border bg-card shadow-card lg:col-span-2">
             <div className="relative h-72 w-full bg-brand-deep/90 sm:h-80">
-              <div className="absolute inset-0 grid place-items-center px-6 text-center">
+              <div className="absolute inset-0 grid place-items-center px-0 text-center">
                 <div>
-                  <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-teal text-teal-foreground">
+                <div className="h-80 min-h-[72px] w-205 overflow-hidden rounded-0xl border border-slate-200 shadow-lg">
+              <iframe
+                title="Medifix Hospital location map"
+                src="https://www.google.com/maps?q=Medifix+Hospital+Limited,+6.4358833,2.8887113&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '420px' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+                  {/* <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-teal text-teal-foreground">
                     <MapPin className="h-6 w-6" />
                   </span>
                   <p className="mt-5 font-display text-lg font-semibold text-brand-foreground">
@@ -686,7 +705,7 @@ function Contact() {
                   <p className="mx-auto mt-2 max-w-sm text-sm text-brand-foreground/70">
                     [Embed the Google Maps location for Medifix Hospital Limited once the verified
                     address is available.]
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -700,7 +719,7 @@ function Contact() {
                 </p>
               </div>
               <a
-                href="https://www.google.com/maps"
+                href="https://www.google.com/maps/place/Medifix+Hospital+Limited/@6.4358833,2.8887113,17z/data=!3m1!4b1!4m6!3m5!1s0x103b63b3024886fb:0x80fb5722fa0ab66a!8m2!3d6.4358833!4d2.8887113!16s%2Fg%2F11zd5hggqx?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full gradient-brand px-6 py-3.5 text-sm font-semibold text-brand-foreground shadow-card transition-transform hover:-translate-y-0.5"

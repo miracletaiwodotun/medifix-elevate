@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import logo from "../../assets/logo.png.png"
 
 const QUICK_LINKS = [
   { label: "About Medifix", href: "#about" },
@@ -23,10 +24,10 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-teal text-teal-foreground text-lg font-bold">
-              M
+            <span className="">
+            <img src={logo} alt="medifix logo" className="w-38 h-20"/>
             </span>
-            <span className="font-display text-lg font-bold">Medifix Hospital Limited</span>
+            <span className="font-display text-lg font-bold"></span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-brand-foreground/70">
             Compassionate, patient-centred hospital care delivered by a professional clinical team
@@ -79,15 +80,15 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-4 text-sm text-brand-foreground/75">
             <li className="flex gap-3">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-              <span>[Add hospital address]</span>
+              <span>Medifiix Hospital, Opposite Agano Palace, near New Market, Ajara-Aganmathen, Badagry, Lagos State.</span>
             </li>
             <li className="flex gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-              <span>[Add phone number]</span>
+              <span>08034151457</span>
             </li>
             <li className="flex gap-3">
               <Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-              <span>[Add email address]</span>
+              <span>medifixhospitalltd@gmail.com</span>
             </li>
           </ul>
           <a

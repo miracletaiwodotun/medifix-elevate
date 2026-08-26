@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
+import logo from "../../assets/logo.png.png"
 
 const NAV = [
   { label: "About", href: "#about" },
@@ -26,10 +27,10 @@ export function SiteHeader() {
       <div className="hidden bg-brand-deep text-brand-foreground md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2 text-xs">
           <p className="opacity-90">
-            Emergency line: <span className="font-semibold">[Add emergency number]</span>
+            Emergency line: <span className="font-semibold">08034151457</span>
           </p>
           <p className="opacity-90">
-            Opening hours: <span className="font-semibold">[Add opening hours]</span>
+            Opening hours: <span className="font-semibold">24/7</span>
           </p>
         </div>
       </div>
@@ -43,16 +44,11 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
           <a href="#top" className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-xl gradient-brand text-brand-foreground">
-              <span className="text-lg font-bold">M</span>
+            <span className="">
+              <span className="text-lg font-bold"><img src={logo} alt="medifix logo" className="w-48 h-20"/></span>
             </span>
             <span className="leading-tight">
-              <span className="block font-display text-base font-bold text-brand">
-                Medifix Hospital
-              </span>
-              <span className="block text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                Limited
-              </span>
+              
             </span>
           </a>
 
@@ -70,7 +66,7 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2">
             <a
-              href="tel:+000000000000"
+              href="tel:+2348034151457"
               className="hidden items-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:border-teal hover:text-teal sm:inline-flex"
             >
               <Phone className="h-4 w-4" /> Call now
