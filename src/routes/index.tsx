@@ -29,6 +29,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/about.jpg";
+import { submitAppointment } from "@/lib/appointments.functions";
 import galleryConsult from "@/assets/gallery-consult.jpg";
 import galleryWard from "@/assets/gallery-ward.jpg";
 import galleryLab from "@/assets/gallery-lab.jpg";
