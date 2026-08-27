@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { supabase } from "@/integrations/supabase/client";
@@ -89,7 +89,14 @@ function AuthPage() {
   return (
     <main className="grid min-h-screen place-items-center bg-surface px-6 py-16">
       <div className="w-full max-w-md rounded-3xl border border-border bg-card p-8 shadow-lift">
-        <h1 className="font-display text-2xl font-bold text-brand">Hospital staff sign in</h1>
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:text-brand"
+        >
+          <span aria-hidden="true">←</span> Back to home page
+        </Link>
+
+        <h1 className="mt-4 font-display text-2xl font-bold text-brand">Hospital staff sign in</h1>
         <p className="mt-2 text-sm text-muted-foreground">
           Access to appointment requests is restricted to authorised Medifix staff.
         </p>
