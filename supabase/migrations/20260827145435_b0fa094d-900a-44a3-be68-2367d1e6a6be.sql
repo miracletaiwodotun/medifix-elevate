@@ -1,0 +1,1 @@
+DELETE FROM public.appointments WHERE full_name IN ('Debug Patient', 'Playwright Test Patient');

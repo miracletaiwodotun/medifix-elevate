@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import {
   Activity,
@@ -28,6 +29,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import heroImg from "@/assets/hero.jpg";
 import aboutImg from "@/assets/about.jpg";
+import { submitAppointment } from "@/lib/appointments.functions";
 import galleryConsult from "@/assets/gallery-consult.jpg";
 import galleryWard from "@/assets/gallery-ward.jpg";
 import galleryLab from "@/assets/gallery-lab.jpg";
@@ -499,7 +501,43 @@ const FIELD =
 const LABEL = "block text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground";
 
 function Appointment() {
-  const [submitted, setSubmitted] = useState(false);
+  const submit = useServerFn(submitAppointment);
+  const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      full_name: String(fd.get("name") ?? "").trim(),
+      phone: String(fd.get("phone") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      preferred_date: String(fd.get("date") ?? "").trim(),
+      preferred_service: String(fd.get("service") ?? "").trim(),
+      message: String(fd.get("message") ?? "").trim(),
+    };
+
+    if (payload.full_name.length < 2) return setError("Please enter your full name.");
+    if (payload.phone.length < 6) return setError("Please enter a valid phone number.");
+    if (!payload.preferred_date) return setError("Please choose a preferred date.");
+    if (!payload.preferred_service) return setError("Please select a service.");
+
+    setError(null);
+    setStatus("sending");
+    try {
+      await submit({ data: payload });
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("idle");
+      setError(
+        err instanceof Error && err.message
+          ? err.message
+          : "We couldn't send your request. Please try again.",
+      );
+    }
+  }
 
   return (
     <section id="appointment" className="border-y border-border bg-surface py-20 lg:py-28">
@@ -514,25 +552,29 @@ function Appointment() {
             service. For urgent medical situations, please call the emergency line instead.
           </p>
           <div className="mt-8 space-y-3">
-            <InfoPill icon={Ambulance} label="Emergency" value="09124326336" accent />
-            <InfoPill icon={MessageCircle} label="WhatsApp" value="08034151457" />
-            <InfoPill icon={CalendarCheck} label="Response time" value="10 mins" />
+            <InfoPill icon={Ambulance} label="Emergency" value="[Add emergency number]" accent />
+            <InfoPill icon={MessageCircle} label="WhatsApp" value="[Add WhatsApp number]" />
+            <InfoPill icon={CalendarCheck} label="Response time" value="[Add response time]" />
           </div>
         </div>
 
         <form
           className="reveal rounded-3xl border border-border bg-card p-7 shadow-lift sm:p-9"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSubmitted(true);
-          }}
+          onSubmit={onSubmit}
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label className={LABEL} htmlFor="name">
                 Full name
               </label>
-              <input id="name" name="name" required placeholder="Your full name" className={FIELD} />
+              <input
+                id="name"
+                name="name"
+                required
+                maxLength={120}
+                placeholder="Your full name"
+                className={FIELD}
+              />
             </div>
             <div>
               <label className={LABEL} htmlFor="phone">
@@ -543,6 +585,7 @@ function Appointment() {
                 name="phone"
                 type="tel"
                 required
+                maxLength={40}
                 placeholder="Your phone number"
                 className={FIELD}
               />
@@ -555,6 +598,7 @@ function Appointment() {
                 id="email"
                 name="email"
                 type="email"
+                maxLength={255}
                 placeholder="you@example.com"
                 className={FIELD}
               />
@@ -589,6 +633,7 @@ function Appointment() {
                 id="message"
                 name="message"
                 rows={4}
+                maxLength={2000}
                 placeholder="Briefly describe your concern or preferred time"
                 className={FIELD}
               />
@@ -597,19 +642,26 @@ function Appointment() {
 
           <button
             type="submit"
-            className="mt-7 w-full rounded-full gradient-brand px-6 py-4 text-sm font-semibold text-brand-foreground shadow-card transition-transform hover:-translate-y-0.5"
+            disabled={status === "sending"}
+            className="mt-7 w-full rounded-full gradient-brand px-6 py-4 text-sm font-semibold text-brand-foreground shadow-card transition-transform hover:-translate-y-0.5 disabled:opacity-60"
           >
-            Request Appointment
+            {status === "sending" ? "Sending request…" : "Request Appointment"}
           </button>
 
-          {submitted ? (
+          {error ? (
+            <p className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+              {error}
+            </p>
+          ) : null}
+
+          {status === "success" ? (
             <p className="mt-4 rounded-xl border border-teal/30 bg-teal-soft px-4 py-3 text-sm font-medium text-brand">
-              Thank you — your request has been captured in this prototype. [Connect this form to
-              the hospital's email or booking system before going live.]
+              Thank you — your appointment request has been received. Our team will contact you to
+              confirm your preferred date and service.
             </p>
           ) : (
             <p className="mt-4 text-xs text-muted-foreground">
-              
+              Your details are sent securely to the hospital's appointments team.
             </p>
           )}
         </form>
