@@ -54,7 +54,27 @@ function AppointmentsDashboard() {
   const [filter, setFilter] = useState<"All" | AppointmentStatus>("All");
   const [selected, setSelected] = useState<AppointmentRow | null>(null);
 
-  const access = useQuery({ queryKey: ["staff-access"], queryFn: () => fetchAccess() });
+  const access = useQuery({
+    queryKey: ["staff-access"],
+    queryFn: async () => {
+      console.log("getStaffAccess is being called");
+  
+      const { data: sessionData } = await supabase.auth.getSession();
+  
+      console.log("BROWSER SESSION USER ID:", sessionData.session?.user?.id);
+      console.log("BROWSER SESSION EMAIL:", sessionData.session?.user?.email);
+      console.log("HAS ACCESS TOKEN:", !!sessionData.session?.access_token);
+  
+      try {
+        const result = await fetchAccess();
+        console.log("getStaffAccess result:", result);
+        return result;
+      } catch (error) {
+        console.error("getStaffAccess ERROR:", error);
+        throw error;
+      }
+    },
+  });
   const isStaff = access.data?.isStaff === true;
 
   const appointments = useQuery({

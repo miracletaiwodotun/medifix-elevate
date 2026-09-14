@@ -552,9 +552,9 @@ function Appointment() {
             service. For urgent medical situations, please call the emergency line instead.
           </p>
           <div className="mt-8 space-y-3">
-            <InfoPill icon={Ambulance} label="Emergency" value="[Add emergency number]" accent />
-            <InfoPill icon={MessageCircle} label="WhatsApp" value="[Add WhatsApp number]" />
-            <InfoPill icon={CalendarCheck} label="Response time" value="[Add response time]" />
+            <InfoPill icon={Ambulance} label="Emergency" value="08034151457" accent />
+            <InfoPill icon={MessageCircle} label="WhatsApp" value="08034151457" />
+            <InfoPill icon={CalendarCheck} label="Response time" value="5 mins" />
           </div>
         </div>
 
