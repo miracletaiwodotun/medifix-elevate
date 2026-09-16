@@ -101,13 +101,21 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-brand-foreground/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs text-brand-foreground/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Medifix Hospital Limited. All rights reserved.</p>
-          <p className="flex flex-wrap items-center gap-3">
-            <span>
-              Prototype website — placeholder content in brackets to be replaced with verified
-              hospital information.
-            </span>
+  <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs text-brand-foreground/60 sm:flex-row sm:items-center sm:justify-between">
+    <p>© {new Date().getFullYear()} Medifix Hospital Limited. All rights reserved.</p>
+
+    <p className="flex flex-wrap items-center gap-3">
+      <span>
+        Website by {"Upward Digitals "}
+        <a
+          href="https://wa.me/2349011936263?text=Hi%20Upward%20Digitals%2C%20I%20found%20you%20through%20the%20Medifix%20Hospital%20website."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-brand-foreground underline underline-offset-4 hover:text-teal"
+        >
+          Upward Digitals
+        </a>
+      </span>
             <a href="/auth" className="underline underline-offset-4 hover:text-brand-foreground">
               Staff login
             </a>

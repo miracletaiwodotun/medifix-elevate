@@ -26,7 +26,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50">
       <div className="hidden bg-brand-deep text-brand-foreground md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-2 text-xs">
-          <p className="opacity-90">
+          <p className="opacity-80">
             Emergency line: <span className="font-semibold">08034151457</span>
           </p>
           <p className="opacity-90">
@@ -42,7 +42,7 @@ export function SiteHeader() {
             : "border-transparent bg-background"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
+        <div className="mx-auto flex max-w-7xl h-20 backdrop-opacity-0 items-center justify-between gap-4 px-6 py-4">
           <a href="#top" className="flex items-center gap-3">
             <span className="">
               <span className="text-lg font-bold"><img src={logo} alt="medifix logo" className="w-48 h-20"/></span>

@@ -578,7 +578,7 @@ function Appointment() {
             </div>
             <div>
               <label className={LABEL} htmlFor="phone">
-                Phone number
+                Phone number (whatsapp)
               </label>
               <input
                 id="phone"
