@@ -332,7 +332,7 @@ function About() {
             A hospital built around professionalism and compassion
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-          Medifix Hospital Limited was founded by <b>Dr. James Piponsuhu on 5th January 2026</b> with a commitment to providing dependable healthcare services in a professional and caring environment.We are dedicated to putting patients first, delivering quality medical care, and creating a comfortable environment where individuals and families can receive the attention they deserve.
+          Medifix Hospital Limited was founded by <b>Dr. James Piponsuhu</b> and <b>Dr. Alaiye Oluwaseyi</b> on the 5th of January 2026, with a commitment to providing dependable healthcare services in a professional and caring environment. We are dedicated to putting patients first, delivering quality medical care, and creating a comfortable environment where individuals and families can receive the attention they deserve.
           </p>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">
             Medifix Hospital Limited is a healthcare facility dedicated to providing dependable
