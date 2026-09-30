@@ -3,7 +3,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
+
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -77,15 +77,17 @@ function AuthPage() {
 
   async function onGoogle() {
     setError(null);
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
+  
+    const { error: err } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/admin/appointments`,
+      },
     });
-    if (result.error) {
+  
+    if (err) {
       setError("Google sign-in failed. Please try again.");
-      return;
     }
-    if (result.redirected) return;
-    navigate({ to: "/admin/appointments", replace: true });
   }
 
   return (
