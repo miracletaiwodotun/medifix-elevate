@@ -106,6 +106,7 @@ export const submitAppointment = createServerFn({ method: "POST" })
 
     const resendApiKey = process.env["RESEND_API_KEY"];
     const doctorEmail = process.env["DOCTOR_EMAIL"];
+    const notificationEmail = process.env["NOTIFICATION_EMAIL"];
 
     console.log(
       "[Resend] API key loaded:",
@@ -121,9 +122,9 @@ export const submitAppointment = createServerFn({ method: "POST" })
     // 3. CHECK RESEND CONFIGURATION
     // =========================================================
 
-    if (!resendApiKey || !doctorEmail) {
+    if (!resendApiKey || !doctorEmail || !notificationEmail) {
       console.error(
-        "[Resend] Missing RESEND_API_KEY or DOCTOR_EMAIL.",
+        "[Resend] Missing RESEND_API_KEY, DOCTOR_EMAIL, or NOTIFICATION_EMAIL.",
       );
 
       // The appointment was already saved successfully,
@@ -151,9 +152,9 @@ export const submitAppointment = createServerFn({ method: "POST" })
           },
 
           body: JSON.stringify({
-            from: "Medifix Hospital <onboarding@resend.dev>",
+            from: "Medifix Hospital Limited <no-reply@medifixhospital.com>",
 
-            to: [doctorEmail],
+            to: [doctorEmail, notificationEmail],
 
             subject: `New Appointment Request - ${data.full_name}`,
 
