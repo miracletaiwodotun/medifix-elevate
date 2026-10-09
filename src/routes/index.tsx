@@ -71,10 +71,10 @@ export const Route = createFileRoute("/")({
             "Hospital providing general medical care, maternity, paediatrics, laboratory, surgery and emergency services.",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "[Add hospital address]",
+            streetAddress: "Medifiix Hospital, Opposite Agano Palace, near New Market, Ajara-Aganmathen, Badagry, Lagos State.",
           },
-          telephone: "[Add phone number]",
-          openingHours: "[Add opening hours]",
+          telephone: "08034151457",
+          openingHours: "24/7",
         }),
       },
     ],
@@ -163,28 +163,28 @@ const GALLERY = [
   { src: galleryConsult, alt: "Modern consultation room with examination bed", span: "" },
   { src: galleryWard, alt: "Clean inpatient ward with prepared beds", span: "" },
   { src: galleryLab, alt: "Laboratory technician analysing samples under a microscope", span: "" },
-  { src: galleryTheatre, alt: "Operating theatre with surgical lighting and equipment", span: "" },
-  { src: galleryStation, alt: "Hospital nurses station with staff at work", span: "sm:col-span-2 lg:col-span-4" },
+  { src: galleryTheatre, alt: "A standard and well equipped pharmacy", span: "" },
+  { src: galleryStation, alt: "A standard and well wquipped pharmacy", span: "sm:col-span-2 lg:col-span-4" },
 ];
 
 const TESTIMONIALS = [
   {
     quote:
       "The staff explained every step of my treatment and checked on me regularly. I left feeling genuinely cared for.",
-    name: "Sample Patient A",
-    detail: "Placeholder review — replace with a genuine patient review",
+    name: "Adegoke Joshua",
+    
   },
   {
     quote:
       "From reception to consultation the process was calm and organised. The environment was clean and reassuring.",
-    name: "Sample Patient B",
-    detail: "Placeholder review — replace with a genuine patient review",
+    name: "Adejare Eniola",
+    
   },
   {
     quote:
       "My child was seen quickly and treated with real patience. Clear guidance was given for care at home.",
-    name: "Sample Patient C",
-    detail: "Placeholder review — replace with a genuine patient review",
+    name: "Abosede Gloria",
+    
   },
 ];
 
